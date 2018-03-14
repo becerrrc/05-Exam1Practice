@@ -8,7 +8,7 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Raymond Becerra.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
@@ -163,7 +163,13 @@ def problem0a(n):
     #        Simply try a few examples to convince yourself of this.
     #        ASK FOR HELP if you do not understand this hint.
     # ------------------------------------------------------------------
+    # sum_d = sum_of_digits(n)
+    # if sum_d % 2 == 1:
+    #     return True
+    # else:
+    #     return False
 
+    return (sum_of_digits(n) % 2 == 1)
 
 def run_test_problem0b():
     """ Tests the   problem0b   function. """
@@ -227,7 +233,11 @@ def problem0b(n):
     #    **  use (call) the   is_prime   function that is DEFINED ABOVE.
     ####################################################################
     # ------------------------------------------------------------------
-
+    count = 0
+    for k in range(n-1):
+        if is_prime(k+2):
+            count = count + 1
+    return count
 
 def run_test_problem0c():
     """ Tests the   problem0c  function. """
@@ -294,6 +304,15 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ####################################################################
     # ------------------------------------------------------------------
+    circle.attach_to(window)
+    radius = circle.radius
+    center = rg.Point(circle.center.x + (2*radius),circle.center.y)
+    for k in range(n):
+        center = rg.Point(circle.center.x + (k+1)*(2*radius),circle.center.y)
+        circle2 = rg.Circle(center, radius)
+        circle2.attach_to(window)
+        #center = rg.Point(center.x + 2*radius,center.y)
+        window.render(0.5)
 
 
 # ----------------------------------------------------------------------

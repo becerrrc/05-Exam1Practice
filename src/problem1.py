@@ -2,7 +2,7 @@
 PRACTICE Test 1, problem 1.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Raymond Becerra.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
@@ -24,12 +24,12 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 #    STOP working on that problem and ASK YOUR INSTRUCTOR FOR HELP
 #    on it, in class or via Piazza.
 ########################################################################
-
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem1a()
-    run_test_problem1b()
+    #run_test_problem1a()
+    #run_test_problem1b()
     run_test_problem1c()
 
 
@@ -120,6 +120,20 @@ def run_test_problem1a():
     print('Test 2 expected:', expected, '(approximately)')
     print('       actual:  ', answer)
 
+    # Test 3:
+    expected = -1.728  # This is APPROXIMATELY the correct answer.
+    answer = problem1a(2, 7)
+    print()
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 4:
+    expected = 1.269  # This is APPROXIMATELY the correct answer.
+    answer = problem1a(23, 75)
+    print()
+    print('Test 4 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
     # ------------------------------------------------------------------
     # TO DO: 2 (continued).
     # Below this comment, add 2 more test cases of your own choosing.
@@ -152,6 +166,11 @@ def problem1a(m, n):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     # ------------------------------------------------------------------
+    count = 0
+    z = (n**2)+1-(m**2)
+    for k in range(z):
+        count = count + math.sin((m**2)+k)
+    return count
 
 
 def run_test_problem1b():
@@ -170,6 +189,18 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+
+    answer = (problem1b(3,70))
+    print('Answer:  ',answer)
+
+    answer = (problem1b(5, 40))
+    print('Answer:  ', answer)
+
+    answer = (problem1b(1, 50))
+    print('Answer:  ', answer)
+
+    answer = (problem1b(12, 100))
+    print('Answer:  ', answer)
 
 
 def problem1b(m, f):
@@ -202,6 +233,13 @@ def problem1b(m, f):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 to 15 minutes.
     # ------------------------------------------------------------------
+
+    count = 0
+    z = (f*m)+1-m
+    for k in range(z):
+        if is_prime(m+k):
+            count = count + 1
+    return count
 
 
 def run_test_problem1c():
@@ -300,6 +338,12 @@ def problem1c(n):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 20 minutes.
     # ------------------------------------------------------------------
+
+    count = 1
+    for k in range(n):
+        if is_prime(k+1) == True:
+            count = count * (k+1)
+    return (sum_of_digits(count))
 
 
 # ----------------------------------------------------------------------
