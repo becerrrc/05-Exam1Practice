@@ -26,12 +26,13 @@ import rosegraphics as rg
 #    STOP working on that problem and ASK YOUR INSTRUCTOR FOR HELP
 #    on it, in class or via Piazza.
 ########################################################################
-
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
     #run_test_problem3a()
-    run_test_problem3b()
+    #run_test_problem3b()
+
 
 
 def run_test_problem3a():
